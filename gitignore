@@ -1,0 +1,11 @@
+# MACOS
+.DS_Store*
+#vscode
+.vscode
+.idea
+#vscode
+*.sh-scripts
+tags
+#vim 
+.vimrc
+.cfg

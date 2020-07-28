@@ -1,0 +1,11 @@
+
+function dimg(){
+     docker images --format="{{.Repository}}:{{.Tag}}" | fzf
+}
+
+
+function ffs(){
+     local dir
+     dir=$(fasd -l | fzf --height 40% --reverse)
+     cd "$dir"
+}

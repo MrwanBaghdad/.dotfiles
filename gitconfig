@@ -17,3 +17,5 @@
 
 [influceIf "gitdir:~/Work"]
      path = gitconfig-work
+[commit]
+	gpgSign = true

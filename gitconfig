@@ -1,6 +1,19 @@
 # This is Git's per-user configuration file.
 
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/marwan.nabil/.gitignore
 [pull]
 	rebase = false
+[user]
+	name = MrwanBaghdad
+	email = mrwanaghdad76@gmail.com
+	signingkey = 46817A0ED6677B71
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /private/var/folders/yb/jyjv_htd1nq5vx4412yngnpnsf7t7d/T/AppTranslocation/969E8C21-B2A1-4AE7-8562-FBF79B3459E8/d/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[influceIf "gitdir:~/Work"]
+     path = gitconfig-work

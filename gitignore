@@ -6,6 +6,8 @@
 #vscode
 *.sh-scripts
 tags
-#vim 
+#vim
 .vimrc
 .cfg
+
+.envrc

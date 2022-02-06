@@ -1,0 +1,10 @@
+
+layout_nvm() {
+     watch_file .nvmrc
+     local NVM_PATH="$HOME/.nvm/nvm.sh"
+     if [ -f "$NVM_PATH" ]; then
+          echo "Found nvm"
+          echo "$PWD"
+          source "${NVM_PATH}"
+     fi
+}

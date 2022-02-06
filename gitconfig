@@ -6,8 +6,10 @@
 	rebase = false
 [user]
 	name = MrwanBaghdad
-	email = mrwanaghdad76@gmail.com
-	signingkey = 46817A0ED6677B71
+	email = marwan.nabil@delieryhero.com
+	signingkey = F9008296E8BB4CB7E2B9C17242508EF72613B1C4
+
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -15,7 +17,10 @@
 	cmd = /private/var/folders/yb/jyjv_htd1nq5vx4412yngnpnsf7t7d/T/AppTranslocation/969E8C21-B2A1-4AE7-8562-FBF79B3459E8/d/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
-[influceIf "gitdir:~/Work"]
-     path = gitconfig-work
+[influceIf "gitdir/i:F:/Users/marwan.nabil/Personal/"]
+     path = /Users/marwan.nabil/.dotfiles/gitconfig-work
+
 [commit]
 	gpgSign = true
+[gpg]
+	program = gpg

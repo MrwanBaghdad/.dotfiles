@@ -3,10 +3,22 @@ function dimg(){
      docker images --format="{{.Repository}}:{{.Tag}}" | fzf
 }
 
+function fld(){
+     local dir
+     dir=$(fasd -l -d | fzf --height 40% --reverse)
+     echo ${dir}
+}
 
 function fd(){
      local dir
      dir=$(fasd -l -d | fzf --height 40% --reverse)
+     cd "$dir"
+}
+
+function fcd(){
+     local dir
+     file=$(fzf --height 40% --reverse)
+     dir=$(dirname $file)
      cd "$dir"
 }
 

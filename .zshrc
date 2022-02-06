@@ -1,8 +1,9 @@
 # If you come from bash you might have to change your $PATH.
  export PATH=$HOME/bin:/usr/local/bin:$PATH
- export PATH="/Users/marwanbaghdad/miniconda3/bin:$PATH"
+# export PATH="/Users/marwan.nabil/miniconda3/bin:$PATH"  # commented out by conda initialize
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/marwanbaghdad/.oh-my-zsh"
+export ZSH="/Users/marwan.nabil/.oh-my-zsh"
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -78,11 +79,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -96,11 +97,11 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# # alias ohmyzsh="mate ~/.oh-my-zsh"
-# bindkey -v
-# stty -ixon
-# bindkey '\eOR'  autosuggest-accept
+alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+bindkey -v
+stty -ixon
+bindkey '\eOR'  autosuggest-accept
 
 
 
@@ -108,15 +109,57 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/marwanbaghdad/.sdkman"
-[[ -s "/Users/marwanbaghdad/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/marwanbaghdad/.sdkman/bin/sdkman-init.sh"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
+# complete -o nospace -C /usr/local/bin/terraform terraform
 
 source ~/.functions
-source ~/.aliases
-source $(brew --prefix)/etc/profile.d/z.sh
+source ~/.helmrc
 
 
+
+export NVM_DIR="/Users/marwan.nabil/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/marwan.nabil/.sdkman"
+[[ -s "/Users/marwan.nabil/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/marwan.nabil/.sdkman/bin/sdkman-init.sh"
+
+
+eval "$(fasd --init auto)"
+
+ulimit -n 1024
+
+eval "$(direnv hook zsh)"
+
+function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
+
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+alias t='todo.sh'
+
+# Created by `pipx` on 2021-11-27 18:33:43
+export PATH="$PATH:/Users/marwan.nabil/.local/bin"

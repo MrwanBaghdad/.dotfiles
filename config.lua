@@ -10,7 +10,7 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = { timeout = 10000 }
 lvim.colorscheme = "onedarker"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -54,7 +54,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.dashboard.active = true
+lvim.builtin.dashboard.active = false
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
@@ -81,8 +81,8 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- generic LSP settings
 
--- ---@usage disable automatic installation of servers
--- lvim.lsp.automatic_servers_installation = false
+---@usage disable automatic installation of servers
+lvim.lsp.automatic_servers_installation = false
 
 -- ---@usage Select which servers should be configured manually. Requires `:LvimCacheRest` to take effect.
 -- See the full default list `:lua print(vim.inspect(lvim.lsp.override))`
@@ -107,7 +107,7 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "black", filetypes = { "python" } },
   { command = "isort", filetypes = { "python" } },
-  { command = "terraform_fmt" }
+  { name = "terraform_fmt", filetypes = {"terraform", "tf"}}
   -- {
   --   -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
   --   command = "prettier",
@@ -161,3 +161,6 @@ lvim.keys.visual_block_mode["J"] = false
 lvim.keys.visual_block_mode["K"] = false
 
 lvim.builtin.telescope.defaults.path_display = {"absolute"}
+lvim.builtin.treesitter.indent = { enable = true, disable = { "python" } }
+vim.lsp.buf.formatting_sync(nil, 5000)
+
